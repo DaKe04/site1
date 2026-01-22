@@ -1,0 +1,249 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+        <script src="https://assets.incode.it/gsap-business/minified/SplitText.min.js"></script>
+        <script type="importmap">
+             {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+
+        </script>
+        <style>
+            body {
+                font-family: "DM Serif Text", serif;
+            }
+            h1 {
+                font-size: 4vw;
+            }
+            h2 {
+                font-size: 5vw;
+            }
+            h3 {
+                font-size: 2vw;
+                color: saddlebrown;
+            }
+
+            
+
+            #canvas-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                pointer-events: none;
+                z-index: 100;
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        <section id="section1" class="flex items-center justify-center h-screen">
+        <h1 class="text-3xl font-bold underline text-center">
+            <div>test del software è una serie di operazioni effettuate durante tutta la fase di sviluppo in cui il prodotto</div> 
+            <div>o il semilavorato, cioè il prodotto in fase di test</div>
+            <div>viene controllato per riconoscere eventuali malfunzionamenti e risolverli prima del rilascio finale del software.</div>
+        </h1>        
+        </section>
+        <section id="section2" class="h-screen bg-gray-200 flex items-center justify-center">
+            <h1 class="title text-[8vw]">
+                <div class="title text-[8vw]">
+            scroll to see the animation again.
+            </h1>
+            <div id="canvas-container"></div>
+            
+        </section>
+        <section id="section3" class="flex items-center justify-center bg-red-200">
+            <div class="h-screen flex items-center justify-center">
+                <h2 class="text-center">
+                    <div>
+                        l'arte non serve a nulla, tranne che a mostrare il senso della vita</div> 
+                </h2>        
+            </div>
+        </section>
+        <section id="section4" class="h-screen bg-green-200 flex items-center justify-center">
+            <div class="h-screen flex items-center justify-center"> 
+            <h2 class="text-center">
+                Se puoi sognarlo, puoi farlo.
+            </h2>
+            
+            </div>
+            
+        </section>
+        <section id="Griglia" class="flex items-center justify-center h-screen bg-yellow-200">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-20 p-20">
+              <div class="item rounded overflow-hidden">
+                <h3 class="title text-[2vw]">
+                    <div> 
+                        <div>
+                            La prima proposta di un sistema ipertestuale, cioè di un testo con rimandi interni ad altri testi, si può far risalire agli studi di Vannevar Bush, poi pubblicati nell'articolo As We May Think (in italiano "Come potremmo pensare") del 1945.
+                        </div>
+                    </div>
+                </h3>
+            </div>
+
+                  <div class="item rounded overflow-hidden">
+                <h3 class="title text-[2vw]">
+                    <div> 
+                        <div>Il concetto di ipertesto fu introdotto nel 1965 da Ted Nelson.</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyFZrNhUq8yacdfzVKDyrZ7c-GFpE_2s5fsQ&s" alt="image">
+                    </div>
+                </h3>
+            </div>
+
+                  <div class="item rounded overflow-hidden">
+                <h3 class="title text-[2vw]">
+                    <div> 
+                        <div>La data di nascita del World Wide Web viene comunemente indicata nel 6 agosto 1991, giorno in cui l'informatico inglese Tim Berners-Lee pubblicò il primo sito web[2]</div>
+                    </div>
+                </h3>
+            </div>
+
+                    <div class="item rounded overflow-hidden">
+                <h3 class="title text-[2vw]">
+                    <div> 
+                        <div>L'idea del World Wide Web era nata due anni prima, nel 1989, presso il CERN (Conseil Européen pour la Recherche Nucléaire) di Ginevra, il più importante laboratorio di fisica europeo.</div>
+                    </div>
+                </h3>
+            </div>
+        </section>
+
+    
+        <script type="module">
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.registerPlugin(SplitText);
+            
+            gsap.from("#section2 .title", {
+                scrollTrigger: {
+                    trigger: "#section2",
+                    //start: "top center",
+                    //end: "bottom top",
+                    //toggleActions: "play none none reverse",
+                    scrub: true,
+                    markers: true,
+                    pin: true,
+                },
+                y: 200,
+                duration: 1,
+                opacity: 0,
+            });
+
+            const split1 = new SplitText("#section3 .text-center", {type: "words, chars, lines"});
+            gsap.from(split1.words, {
+                scrollTrigger: {
+                    trigger: "#section3",
+                    //start: "top center",
+                    //end: "bottom top",
+                    //toggleActions: "play none none reverse",
+                    scrub: true,
+                    markers: true,
+                    pin: true,
+                },
+                x: -300,
+                y: 200,
+                duration: 2,
+                opacity: 0,
+                stagger: 0.2,
+            });
+
+            const split2 = new SplitText("#section4 .text-center", {type: "words, chars, lines"});
+            gsap.from(split2.chars, {
+                scrollTrigger: {
+                    trigger: "#section4",
+                    //start: "top center",
+                    //end: "bottom top",
+                    scrub: true,
+                    markers: true,
+                    pin: true,
+                },
+                y: 100,
+                rotationX: 180,
+                duration: 1,
+                opacity: 0,
+                stagger: 0.05,
+            });
+
+            //3D Animation with Three.js
+
+                   //import * as THREE from 'three';
+
+        // Setup Scene
+        /*const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.4, 1000);
+        camera.position.z = 5;
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Crea un oggetto 3D (cubo con materiale colorato)
+        const geometry = new THREE.BoxGeometry(2, 2, 2);
+        const material = new THREE.MeshStandardMaterial({
+            color: 0x00ffff,
+            metalness: 0.5,
+            roughness: 0.2,
+            transparent: true,
+            opacity: 0.9
+        });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        // Luci
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        // Posizione iniziale (fuori dallo schermo a sinistra)
+        cube.position.x = 0;
+        cube.position.y = 0;
+
+        // Animazione di rotazione continua
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // GSAP ScrollTrigger Animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(cube.position, {
+            x: 10, // Muove da -10 (sinistra) a 10 (destra)
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#section2",
+                start: "top top",
+                end: "bottom top",
+                scrub: 1,
+                pin: true,
+                markers: true // Imposta a true per vedere i marker di debug
+            }
+        });
+
+        // Gestione resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        */
+        </script>
+    </body>
+    </html>
